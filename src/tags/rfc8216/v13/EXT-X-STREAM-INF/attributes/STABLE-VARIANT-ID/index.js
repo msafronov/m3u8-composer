@@ -1,0 +1,13 @@
+import { attribute } from '@parser/node/attribute';
+import { STABLE_VARIANT_ID_ID } from '@tags/const';
+import { quotedString } from '@tags/rfc8216/v13/common/quoted-string';
+
+export const STABLE_VARIANT_ID = () => {
+    const attributeNode = attribute(STABLE_VARIANT_ID_ID);
+
+    attributeNode[STABLE_VARIANT_ID_ID].parse = (value) => {
+        return quotedString(value);
+    };
+
+    return attributeNode;
+};

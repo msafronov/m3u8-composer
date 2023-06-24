@@ -1,19 +1,27 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist",
-        "module": "commonjs",
-        "target": "ES6",
-        "lib": ["ES6"],
-        "checkJs": true,
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strictNullChecks": true,
-        "allowSyntheticDefaultImports": true
-    },
-    "exclude": [
-        "node_modules"
-    ],
-    "include": [
-        "src/**/*.js"
-    ]
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "ES6",
+    "lib": ["ES6"],
+    "checkJs": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@validator/*": ["./src/validator/*"],
+      "@parser/*": ["./src/parser/*"],
+      "@tags/*": ["./src/tags/*"],
+      "@tags-validation/*": ["./src/tags-validation/*"],
+      "@interpreter/*": ["./src/interpreter/*"],
+      "@schema/*": ["./src/schema/*"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.js"
+  ]
 }
