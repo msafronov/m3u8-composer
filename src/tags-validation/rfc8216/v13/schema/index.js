@@ -12,6 +12,7 @@ import {
     EXT_X_TARGETDURATION_ID,
     EXT_X_ENDLIST_ID,
     EXT_X_PRELOAD_HINT_ID,
+    EXTINF_ID,
 } from '@tags/const';
 
 export const ValidationSchema = (schema) => {
@@ -55,6 +56,19 @@ export const ValidationSchema = (schema) => {
                 schema.playlist[EXT_X_PRELOAD_HINT_ID] !== undefined
             ) {
                 schema.logs['0x1161'] = {
+                    row: 0,
+                    col: 0,
+                    value: null,
+                    isValidated: true,
+                };
+            }
+
+            if (
+                schema.mediaSegments.find((mediaSegment) => {
+                    return mediaSegment[EXTINF_ID] === undefined;
+                }) !== undefined
+            ) {
+                schema.logs['0x1260'] = {
                     row: 0,
                     col: 0,
                     value: null,
