@@ -7,6 +7,7 @@ import { EXT_X_ENDLIST } from '@tags/rfc8216/v13/EXT-X-ENDLIST';
 import { EXT_X_PRELOAD_HINT } from '@tags/rfc8216/v13/EXT-X-PRELOAD-HINT';
 import { TYPE } from '@tags/rfc8216/v13/EXT-X-PRELOAD-HINT/attributes/TYPE';
 import { URI } from '@tags/rfc8216/v13/EXT-X-PRELOAD-HINT/attributes/URI';
+import { EXTINF } from '@tags/rfc8216/v13/EXTINF';
 
 import { ValidationSchema } from './index';
 
@@ -70,6 +71,30 @@ describe('v13 ValidationSchema', () => {
         interpreter(data, schema);
 
         expect(schema.logs['0x1161']).toStrictEqual({
+            value: null,
+            row: 0,
+            col: 0,
+            isValidated: true,
+        });
+    });
+
+    test('missing #EXTINF tag error', () => {
+        const schema = ValidationSchema(ParserSchema({
+            ...EXTINF(),
+        }));
+
+        let data = '#EXTM3U\n';
+
+        data += '#EXT-X-TARGETDURATION:10\n\n';
+        data += '#EXTINF:9.009,\n';
+        data += 'http://media.example.com/first.ts\n';
+        data += '#EXTINF:9.009,\n';
+        data += 'http://media.example.com/second.ts\n';
+        data += 'http://media.example.com/third.ts\n';
+
+        interpreter(data, schema);
+
+        expect(schema.logs['0x1260']).toStrictEqual({
             value: null,
             row: 0,
             col: 0,

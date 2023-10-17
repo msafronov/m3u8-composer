@@ -381,6 +381,18 @@ export const defaultDictionary = {
         message: 'The value is an enumerated-string whose value is YES if the server supports Blocking Playlist Reload',
         origin: 'rfc8216 v13',
     },
+    '0x1260': {
+        relatesTo: '#EXTINF',
+        keyword: 'REQUIRED',
+        message: 'This tag is REQUIRED for each Media Segment',
+        origin: 'rfc8216 v13',
+    },
+    '0x1261': {
+        relatesTo: '#EXTINF, #EXT-X-TARGETDURATION',
+        keyword: 'MUST',
+        message: 'The EXTINF duration of each Media Segment in a Playlist file, ..., MUST be less than or equal to the Target Duration',
+        origin: 'rfc8216 v13',
+    },
 
     /******************************
 
