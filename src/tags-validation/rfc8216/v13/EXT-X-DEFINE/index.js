@@ -9,7 +9,7 @@ import {
 export const EXT_X_DEFINE_V13 = (tag) => {
     let nameDupicates = {};
 
-    tag[EXT_X_DEFINE_ID].validate = (schema, data, dataAll, isLastDataItem) => {
+    tag[EXT_X_DEFINE_ID].validate = (schema, data, dataAll, idx) => {
         const nameValue = data[NAME_ID];
         const importValue = data[IMPORT_ID];
         const queryParamValue = data[QUERYPARAM_ID];
@@ -41,7 +41,7 @@ export const EXT_X_DEFINE_V13 = (tag) => {
             }
         }
 
-        if (isLastDataItem === true) {
+        if (idx === dataAll.length - 1) {
             nameDupicates = {};
         }
     };

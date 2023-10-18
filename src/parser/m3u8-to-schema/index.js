@@ -131,12 +131,12 @@ export const parser = (data = '', schema = {}) => {
                                 char2 === LINE_FEED_CHAR ||
                                 idx2 === length
                             ) {
-                                const value = tag.parse(
-                                    data.slice(
-                                        colonCharPos + 1,
-                                        idx2 === length ? idx + 1 : idx,
-                                    )
+                                const value = data.slice(
+                                    colonCharPos + 1,
+                                    idx2 === length ? idx + 1 : idx,
                                 );
+
+                                const valueForResult = tag.parse(value);
 
                                 tag.data.push({
                                     value: value,
@@ -145,16 +145,16 @@ export const parser = (data = '', schema = {}) => {
                                 });
 
                                 if (tag.mediaType === NONE_MEDIA_TYPE_ID) {
-                                    schema.playlist[tagName] = value;
+                                    schema.playlist[tagName] = valueForResult;
                                     uriBufferRecordTarget = undefined;
                                 } else if (tag.mediaType === MEDIA_SEGMENT_APPLY_NEXT_MEDIA_TYPE_ID) {
-                                    uriBufferApplyNext[tagName] = value;
+                                    uriBufferApplyNext[tagName] = valueForResult;
                                     uriBufferRecordTarget = schema.mediaSegments;
                                 } else if (tag.mediaType === MEDIA_SEGMENT_APPLY_ALL_MEDIA_TYPE_ID) {
-                                    uriBufferApplyAll[tagName] = value;
+                                    uriBufferApplyAll[tagName] = valueForResult;
                                     uriBufferRecordTarget = schema.mediaSegments;
                                 } else if (tag.mediaType === VARIANT_STREAM_APPLY_NEXT_MEDIA_TYPE_ID) {
-                                    uriBufferApplyNext[tagName] = value;
+                                    uriBufferApplyNext[tagName] = valueForResult;
                                     uriBufferRecordTarget = schema.variantStreams;
                                 }
 

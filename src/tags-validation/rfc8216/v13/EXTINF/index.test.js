@@ -107,11 +107,7 @@ describe('v13 #EXTINF', () => {
         expect(schema.logs['0x1261']).toStrictEqual({
             row: 2,
             col: 0, 
-            value: {
-                duration: '19.009',
-                title: 'big',
-            },
-            isValidated: true,
+            value: '19.009',
         });
     });
 
@@ -133,11 +129,7 @@ describe('v13 #EXTINF', () => {
         expect(schema.logs['0x1261']).toStrictEqual({
             row: 2,
             col: 0, 
-            value: {
-                duration: '10.500',
-                title: '',
-            },
-            isValidated: true,
+            value: '10.500',
         });
     });
 

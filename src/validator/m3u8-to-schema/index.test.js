@@ -15,7 +15,7 @@ describe('validator m3u8-to-schema', () => {
             schema,
             schema,
             schema,
-            true,
+            0,
         );
     });
 
@@ -69,14 +69,14 @@ describe('validator m3u8-to-schema', () => {
             schema,
             schema['#EXT-X-CUSTOM-TAG'].data[0],
             schema['#EXT-X-CUSTOM-TAG'].data,
-            false,
+            0,
         );
 
         expect(schema['#EXT-X-CUSTOM-TAG'].validate).toHaveBeenLastCalledWith(
             schema,
             schema['#EXT-X-CUSTOM-TAG'].data[1],
             schema['#EXT-X-CUSTOM-TAG'].data,
-            true,
+            1,
         );
     });
 
@@ -143,14 +143,14 @@ describe('validator m3u8-to-schema', () => {
             schema,
             schema['#EXT-X-CUSTOM-TAG'].data[0]['CUSTOM-ATTRIBUTE'],
             undefined,
-            false,
+            0,
         );
 
         expect(schema['#EXT-X-CUSTOM-TAG']['CUSTOM-ATTRIBUTE'].validate).toHaveBeenLastCalledWith(
             schema,
             schema['#EXT-X-CUSTOM-TAG'].data[2]['CUSTOM-ATTRIBUTE'],
             undefined,
-            true,
+            2,
         );
     });
 });

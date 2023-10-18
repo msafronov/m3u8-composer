@@ -2,7 +2,7 @@ export const validator = (schema) => {
     // schema validation
 
     if (schema.validate !== undefined) {
-        schema.validate(schema, schema, schema, true);
+        schema.validate(schema, schema, schema, 0);
     }
 
     const schemaKeys = Object.keys(schema);
@@ -36,10 +36,8 @@ export const validator = (schema) => {
                     continue;
                 }
 
-                const isLastDataItem = idx2 === tag.data.length - 1;
-
                 if (tag.validate !== undefined) {
-                    tag.validate(schema, dataItem, tag.data, isLastDataItem);
+                    tag.validate(schema, dataItem, tag.data, idx2);
                     dataItem.isValidated = true;
                 }
 
@@ -53,7 +51,7 @@ export const validator = (schema) => {
                             schema,
                             dataItem[validatorsDictionaryKey],
                             undefined, // tag.data,
-                            isLastDataItem,
+                            idx2,
                         );
                     }
                 }

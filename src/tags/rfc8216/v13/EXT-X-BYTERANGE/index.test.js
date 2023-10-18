@@ -43,7 +43,25 @@ describe('v13 #EXT-X-BYTERANGE', () => {
 
         interpreter(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_BYTERANGE_ID]).toBe('16920');
+        expect(schema.mediaSegments[0][EXT_X_BYTERANGE_ID]).toStrictEqual({
+            length: '16920',
+            offset: '',
+        });
+    });
+
+    test('should save the value with offset into the Media Segments result', () => {
+        const schema = ParserSchema({
+            ...EXT_X_BYTERANGE(),
+        });
+
+        const data = '#EXTM3U\n#EXT-X-BYTERANGE:16920@180\nfile.001.ts';
+
+        interpreter(data, schema);
+
+        expect(schema.mediaSegments[0][EXT_X_BYTERANGE_ID]).toStrictEqual({
+            length: '16920',
+            offset: '180',
+        });
     });
 
     test('should not save the value to all Media Segments', () => {
