@@ -28,6 +28,10 @@ describe('v13 KEYFORMATVERSIONS', () => {
 
         parser(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_KEY_ID][KEYFORMATVERSIONS_ID]).toBe('1/2/5');
+        expect(schema.mediaSegments[0][EXT_X_KEY_ID][0][KEYFORMATVERSIONS_ID]).toStrictEqual([
+            '1',
+            '2',
+            '5',
+        ]);
     });
 });

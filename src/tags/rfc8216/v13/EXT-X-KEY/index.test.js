@@ -64,10 +64,10 @@ describe('v13 #EXT-X-KEY', () => {
 
         interpreter(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_KEY_ID][METHOD_ID]).toBe('NONE');
+        expect(schema.mediaSegments[0][EXT_X_KEY_ID][0][METHOD_ID]).toBe('NONE');
     });
 
-    test('should override to the last value into the Media Segments result', () => {
+    test('should append to the last value into the Media Segments result', () => {
         const schema = ParserSchema({
             ...EXT_X_KEY({
                 ...METHOD(),
@@ -80,6 +80,6 @@ describe('v13 #EXT-X-KEY', () => {
 
         interpreter(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_KEY_ID][METHOD_ID]).toBe('NONE');
+        expect(schema.mediaSegments[0][EXT_X_KEY_ID][1][METHOD_ID]).toBe('NONE');
     });
 });

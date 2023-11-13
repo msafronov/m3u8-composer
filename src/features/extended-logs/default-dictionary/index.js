@@ -393,6 +393,30 @@ export const defaultDictionary = {
         message: 'The EXTINF duration of each Media Segment in a Playlist file, ..., MUST be less than or equal to the Target Duration',
         origin: 'rfc8216 v13',
     },
+    '0x1280': {
+        relatesTo: '#EXT-X-KEY, METHOD',
+        keyword: 'REQUIRED',
+        message: 'This attribute is REQUIRED',
+        origin: 'rfc8216 v13',
+    },
+    '0x1281': {
+        relatesTo: '#EXT-X-KEY, METHOD',
+        keyword: '',
+        message: 'The methods defined are: NONE, AES-128, and SAMPLE-AES',
+        origin: 'rfc8216 v13',
+    },
+    '0x1282': {
+        relatesTo: '#EXT-X-KEY, METHOD',
+        keyword: 'MUST NOT',
+        message: 'If the encryption method is NONE, other attributes MUST NOT be present',
+        origin: 'rfc8216 v13',
+    },
+    '0x1283': {
+        relatesTo: '#EXT-X-KEY, URI',
+        keyword: 'REQUIRED',
+        message: 'This attribute is REQUIRED unless the METHOD is NONE',
+        origin: 'rfc8216 v13',
+    },
 
     /******************************
 

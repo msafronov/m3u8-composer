@@ -6,7 +6,7 @@ export const KEYFORMATVERSIONS = () => {
     const attributeNode = attribute(KEYFORMATVERSIONS_ID);
 
     attributeNode[KEYFORMATVERSIONS_ID].parse = (value) => {
-        return quotedString(value);
+        return quotedString(value).split('/');
     };
 
     return attributeNode;

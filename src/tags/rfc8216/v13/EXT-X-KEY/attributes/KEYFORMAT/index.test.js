@@ -28,6 +28,6 @@ describe('v13 KEYFORMAT', () => {
 
         parser(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_KEY_ID][KEYFORMAT_ID]).toBe('com.apple.streamingkeydelivery');
+        expect(schema.mediaSegments[0][EXT_X_KEY_ID][0][KEYFORMAT_ID]).toBe('com.apple.streamingkeydelivery');
     });
 });

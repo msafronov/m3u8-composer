@@ -28,6 +28,6 @@ describe('v13 URI', () => {
 
         parser(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_KEY_ID][URI_ID]).toBe('/media/encoded/asset127-a/1MB/');
+        expect(schema.mediaSegments[0][EXT_X_KEY_ID][0][URI_ID]).toBe('/media/encoded/asset127-a/1MB/');
     });
 });
