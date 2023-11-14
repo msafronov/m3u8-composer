@@ -28,6 +28,9 @@ describe('v13 BYTERANGE', () => {
 
         parser(data, schema);
 
-        expect(schema.mediaSegments[0][EXT_X_MAP_ID][BYTERANGE_ID]).toBe('128@0');
+        expect(schema.mediaSegments[0][EXT_X_MAP_ID][BYTERANGE_ID]).toStrictEqual({
+            length: '128',
+            offset: '0',
+        });
     });
 });

@@ -418,6 +418,25 @@ export const defaultDictionary = {
         origin: 'rfc8216 v13',
     },
 
+    '0x1300': {
+        relatesTo: '#EXT-X-MAP, URI',
+        keyword: 'REQUIRED',
+        message: 'This attribute is REQUIRED',
+        origin: 'rfc8216 v13',
+    },
+    '0x1301': {
+        relatesTo: '#EXT-X-MAP, BYTERANGE',
+        keyword: 'REQUIRED',
+        message: 'offset is REQUIRED "<n>@<o>"',
+        origin: 'rfc8216 v13',
+    },
+    '0x1302': {
+        relatesTo: '#EXT-X-MAP, #EXT-X-KEY, IV',
+        keyword: 'REQUIRED',
+        message: 'If ... EXT-X-MAP tag is encrypted with a METHOD of AES-128, the IV attribute of the EXT-X-KEY ... is REQUIRED',
+        origin: 'rfc8216 v13',
+    },
+
     /******************************
 
         Optionals
