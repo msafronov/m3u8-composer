@@ -1,6 +1,6 @@
 {
   "name": "m3u8-composer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Flexible library for working with m3u8 and HLS playlists (parsing, validation and other stuff)",
   "keywords": [
     "m3u8",
